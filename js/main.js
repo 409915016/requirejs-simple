@@ -13,11 +13,7 @@ require.config({
     waitSeconds: 15,
     shim: {
         'backbone': {
-            //These script dependencies should be loaded before loading
-            //backbone.js
             deps: ['underscore', 'jquery'],
-            //Once loaded, use the global 'Backbone' as the
-            //module value.
             exports: 'Backbone'
         },
         'underscore': {
@@ -27,9 +23,8 @@ require.config({
 
 });
 
-
 requirejs(["util", "jquery", "underscore", "backbone"],
     function (util, $, _, Backbone) {
-        console.log($("title").html());
-
+        util.hello();
+        util.readP();
     });

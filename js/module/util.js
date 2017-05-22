@@ -4,14 +4,15 @@
 
 
 define(["jquery"], function ($) {
-    //Do setup work here
-
-    $(function () {
-        var a = $('.titie').text();
-        var b = "aaa";
-        console.log($);
-        console.log(a)
-    });
+    return{
+        hello : function () {
+            console.log("im from unit.js");
+            console.log($);
+        },
+        readP: function () {
+            alert($(".titie").text());
+        }
+    }
 
 
 });
