@@ -8,7 +8,8 @@ require.config({
         "jquery": "lib/jquery",
         "underscore": "lib/underscore",
         "backbone": "lib/backbone",
-        "util": "module/util"
+        "util": "module/util",
+        "two": "module/two"
     },
     waitSeconds: 15,
     shim: {
@@ -18,13 +19,18 @@ require.config({
         },
         'underscore': {
             exports: '_'
+        },
+        two: {
+            deps: ['jquery'],
+            exports: 'two'
         }
     }
 
 });
 
-requirejs(["util", "jquery", "underscore", "backbone"],
-    function (util, $, _, Backbone) {
-        util.hello();
-        util.readP();
+requirejs(["util", "jquery", "underscore", "backbone", "two"],
+    function (util, $, _, Backbone, two) {
+        //util.hello();
+        //util.readP();
+        two.hi("world");
     });
