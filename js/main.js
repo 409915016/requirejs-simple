@@ -3,28 +3,42 @@
  */
 
 require.config({
-    baseUrl: "js",
-    paths: {
-        "jquery": "lib/jquery",
-        "underscore": "lib/underscore",
-        "backbone": "lib/backbone",
-        "util": "module/util"
+  baseUrl: "js",
+  urlArgs: "v=" + new Date().getTime(),
+  paths: {
+    jquery: "lib/jquery",
+    underscore: "lib/underscore",
+    backbone: "lib/backbone",
+    swal: "lib/sweetalert2.min",
+    util: "module/util",
+    one: "module/one",
+    two: "module/two"
+  },
+  waitSeconds: 15,
+  shim: {
+    backbone: {
+      deps: ["underscore", "jquery"],
+      exports: "Backbone"
     },
-    waitSeconds: 15,
-    shim: {
-        'backbone': {
-            deps: ['underscore', 'jquery'],
-            exports: 'Backbone'
-        },
-        'underscore': {
-            exports: '_'
-        }
+    underscore: {
+      exports: "_"
+    },
+    swal: {
+      deps: ["jquery"],
+      exports: "_swal"
     }
-
+  }
 });
 
-requirejs(["util", "jquery", "underscore", "backbone"],
-    function (util, $, _, Backbone) {
-        util.hello();
-        util.readP();
-    });
+requirejs(
+  ["util", "jquery", "underscore", "backbone", "one", "two", "swal"],
+  function(util, $, _, Backbone, one, two, swal) {
+    // util.hello();
+    // util.readP();
+    one.say();
+    two.say();
+    setTimeout(function() {
+      one.saySwal();
+    }, 1000);
+  }
+);

@@ -2,17 +2,14 @@
  * Created by Mather on 2017-03-23.
  */
 
-
-define(["jquery"], function ($) {
-    return{
-        hello : function () {
-            console.log("im from unit.js");
-            console.log($);
-        },
-        readP: function () {
-            alert($(".titie").text());
-        }
+define(["jquery", "one", "two"], function($, one, two) {
+  return {
+    hello: function() {
+      console.log("im from unit.js");
+      console.log($);
+    },
+    readP: function() {
+      alert($(".titie").text());
     }
-
-
+  };
 });
