@@ -10,6 +10,14 @@ define(["jquery", "one", "two"], function($, one, two) {
     },
     readP: function() {
       alert($(".titie").text());
+    },
+    fromOne: function() {
+      console.log(one);
+      one.saySwal();
+
+      setTimeout(function() {
+        one.swal_old_say();
+      }, 5000);
     }
   };
 });

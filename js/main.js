@@ -9,7 +9,8 @@ require.config({
     jquery: "lib/jquery",
     underscore: "lib/underscore",
     backbone: "lib/backbone",
-    swal: "lib/sweetalert2.min",
+    swal2: "lib/sweetalert2.min",
+    swal: "lib/sweetalert.min",
     util: "module/util",
     one: "module/one",
     two: "module/two"
@@ -23,9 +24,11 @@ require.config({
     underscore: {
       exports: "_"
     },
+    swal2: {
+      deps: ["jquery"]
+    },
     swal: {
-      deps: ["jquery"],
-      exports: "_swal"
+      deps: ["jquery"]
     }
   }
 });
@@ -33,12 +36,15 @@ require.config({
 requirejs(
   ["util", "jquery", "underscore", "backbone", "one", "two", "swal"],
   function(util, $, _, Backbone, one, two, swal) {
-    // util.hello();
+    util.fromOne();
+    //util.hello();
     // util.readP();
-    one.say();
-    two.say();
-    setTimeout(function() {
-      one.saySwal();
-    }, 1000);
+    // one.say();
+    //two.say();
+    // setTimeout(function() {
+    //   util.fromOne();
+    // }, 5000);
+    //one.saySwal();
+    // one.swal_old_say();
   }
 );
