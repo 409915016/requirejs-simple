@@ -13,7 +13,9 @@ require.config({
     swal: "lib/sweetalert.min",
     util: "module/util",
     one: "module/one",
-    two: "module/two"
+    two: "module/two",
+    myModule: "module/myModule",
+    general: "module/general"
   },
   waitSeconds: 15,
   shim: {
@@ -34,9 +36,9 @@ require.config({
 });
 
 requirejs(
-  ["util", "jquery", "underscore", "backbone", "one", "two", "swal"],
-  function(util, $, _, Backbone, one, two, swal) {
-    util.fromOne();
+  ["util", "jquery", "underscore", "backbone", "one", "two", "myModule", "swal", "general"],
+  function(util, $, _, Backbone, one, two, myModule, swal, general) {
+    //util.fromOne();
     //util.hello();
     // util.readP();
     // one.say();
@@ -45,6 +47,8 @@ requirejs(
     //   util.fromOne();
     // }, 5000);
     //one.saySwal();
-    // one.swal_old_say();
+    //one.swal_old_say();
+    //myModule.foo();
+    general.hi("World");
   }
 );

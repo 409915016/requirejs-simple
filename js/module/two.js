@@ -16,17 +16,4 @@ var two = (function() {
   return two;
 })();
 
-// define(function() {
-//   var ModuleName = "Two";
-//   var color = "color:red";
-//   return {
-//     say: function() {
-//       console.log(this);
-//       console.log(
-//         "%cthis is from %s Module, funciton say! ",
-//         color,
-//         ModuleName
-//       );
-//     }
-//   };
-// });
+
